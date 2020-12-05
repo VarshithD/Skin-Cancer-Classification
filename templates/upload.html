@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>Image Classifer</title>
+    <style>
+        h1 {text-align: center;}
+        p {text-align: center;}
+        div {text-align: center;}
+        img {
+            max-width:40%;
+            height:auto;
+            max-height:40%; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload an image!</h1>
+    <form method ='post' enctype=multipart/form-data>
+    <p> <input type='file' name='file'> </p>
+    <p> <input type='submit' value='Classify!'> </p>
+    {% if img %}
+        <div>
+            <img src="{{url_for('static', filename=img)}}" />
+            <p> <h3> {{ label }} </h3> </p>
+        </div>
+    {% endif %}
+</body>
+</html>
